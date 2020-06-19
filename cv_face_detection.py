@@ -8,7 +8,8 @@ faces = faceCascade.detectMultiScale(imgGray, 1.1, 4)
 
 for (x, y, w, h) in faces:
     cv2.rectangle(img, (x, y), (x + w, y + h), (255, 0, 0), 2)
-    
+    objectType = "Face"
+    cv2.putText(img, objectType, (x, y), cv2.FONT_HERSHEY_COMPLEX, 0.6, (255, 0, 0), 2)
 
 cv2.imshow("Result", img)
 cv2.waitKey(0)

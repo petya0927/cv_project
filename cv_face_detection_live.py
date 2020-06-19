@@ -12,9 +12,12 @@ while True:
 
     faces = faceCascade.detectMultiScale(grayFrame, 1.1, 4)
 
+    objectType = "face"
+    
     for (x, y, w, h) in faces:
         cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 0, 0), 2)
-
+        cv2.putText(frame, objectType, (x, y), cv2.FONT_HERSHEY_COMPLEX, 0.6, (255, 255, 255), 2)
+        
     cv2.imshow("Video", frame)
     
     if cv2.waitKey(1) == 27:
